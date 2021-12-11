@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet, TouchableOpacity, Image, TextInput } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image, TextInput, ImageBackground } from 'react-native';
 import { Text, View } from '../components/Themed';
 
 import { RootStackScreenProps } from '../types';
@@ -7,14 +7,16 @@ import { RootStackScreenProps } from '../types';
 export default function PhoneNumberScreen({ navigation }: RootStackScreenProps<'PhoneNumber'>) {
   return (
     <View style={styles.container}>
-        <Image style={styles.image} resizeMode={'contain'} source={require('../assets/images/communitycate.png')} />
-        <View style={styles.phoneNumberContainer}>
-            <Text style={styles.registerText}>Register with phone number</Text>
-            <TextInput style={styles.phoneNumberInput}></TextInput>
-            <TouchableOpacity onPress={() => navigation.replace('Auth')} style={styles.link}>
-                <Text style={styles.linkText}>Go to AUTH screen!</Text>
-            </TouchableOpacity>
-        </View>
+        <ImageBackground style={styles.bgImage} source={require('../assets/images/phoneNumberBg.png')} resizeMode="cover">
+            <Image style={styles.image} resizeMode={'contain'} source={require('../assets/images/communitycate.png')} />
+            <View style={styles.phoneNumberContainer}>
+                <Text style={styles.registerText}>Register with phone number</Text>
+                <TextInput style={styles.phoneNumberInput}></TextInput>
+                <TouchableOpacity onPress={() => navigation.replace('Auth')} style={styles.link}>
+                    <Text style={styles.linkText}>Go to AUTH screen!</Text>
+                </TouchableOpacity>
+            </View>
+        </ImageBackground>
     </View>
   );
 }
@@ -23,8 +25,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
+    justifyContent: 'center'
+  },
+  bgImage:  {
+    width: '100%',
+    height: '100%'
   },
   title: {
     fontSize: 20,
@@ -42,11 +47,13 @@ const styles = StyleSheet.create({
   image: {
       position: 'absolute',
       width: 340,
-      top: 120
+      top: 120,
+      left: 20
   },
   phoneNumberContainer: {
       position: 'absolute',
       top: 220,
+      left: 40,
       borderRadius: 54,
       width: 314,
       height: 218,
