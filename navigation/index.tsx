@@ -5,10 +5,11 @@
  */
 import { FontAwesome } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { NavigationContainer, DefaultTheme, DarkTheme, TabNavigationState } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName, Pressable, StyleSheet } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -51,7 +52,11 @@ function RootNavigator() {
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
  * https://reactnavigation.org/docs/bottom-tab-navigator
  */
-const BottomTab = createBottomTabNavigator<RootTabParamList>();
+const BottomTab = createMaterialTopTabNavigator<RootTabParamList>();
+
+// const CustomTabBar = ({ state, descriptors, navigation, insets }) => {
+//   return <BottomTabBar style={styles.tabBar} state={state} descriptors={descriptors} navigation={navigation} insets={insets}/>;
+// };
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
@@ -61,7 +66,9 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
+      }}
+      tabBarPosition='bottom'
+      >
       <BottomTab.Screen
         name="TabOne"
         component={TabOneScreen}
@@ -89,7 +96,7 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />
         }}
       />
     </BottomTab.Navigator>
