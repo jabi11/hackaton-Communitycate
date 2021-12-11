@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
@@ -14,10 +14,10 @@ export default function App() {
     return null;
   } else {
     return (
-      <SafeAreaView style={{flex:1}}>
+      <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
-      </SafeAreaView>
+      </SafeAreaProvider>
     );
   }
 }

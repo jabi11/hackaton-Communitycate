@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, TouchableOpacity, Image, TextInput, ImageBackground } from 'react-native';
 import { Text, View } from '../components/Themed';
+import { Ionicons } from '@expo/vector-icons';
 
 import { RootStackScreenProps } from '../types';
 
@@ -11,9 +12,12 @@ export default function PhoneNumberScreen({ navigation }: RootStackScreenProps<'
             <Image style={styles.image} resizeMode={'contain'} source={require('../assets/images/communitycate.png')} />
             <View style={styles.phoneNumberContainer}>
                 <Text style={styles.registerText}>Register with phone number</Text>
-                <TextInput style={styles.phoneNumberInput}></TextInput>
-                <TouchableOpacity onPress={() => navigation.replace('Auth')} style={styles.link}>
-                    <Text style={styles.linkText}>Go to AUTH screen!</Text>
+                <View style={styles.phoneNumberInputContainer}>
+                    <Text style={styles.countryCode}>+48</Text>
+                    <TextInput keyboardType={'phone-pad'} style={styles.phoneNumberInput}/>
+                </View>
+                <TouchableOpacity onPress={() => navigation.replace('Auth')} style={styles.nextButton}>
+                    <Ionicons size={24} name={'chevron-forward-outline'}/>
                 </TouchableOpacity>
             </View>
         </ImageBackground>
@@ -35,14 +39,17 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
-  link: {
-    marginTop: 10,
-    paddingVertical: 15,
-    left: 90
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+  nextButton: {
+    marginTop: 20,
+    marginBottom: 20,
+    left: 130,
+    width: 40,
+    height: 40,
+    backgroundColor: 'white',
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20
   },
   image: {
       position: 'absolute',
@@ -64,13 +71,25 @@ const styles = StyleSheet.create({
       top: 50,
       left: 60
   },
-  phoneNumberInput: {
+  phoneNumberInputContainer: {
       position: 'relative',
+      flex:1,
+      flexDirection: 'row',
       marginTop: 84,
       marginLeft: 48,
-      width: 220,
-      height: 48,
+      maxWidth: 220,
+      maxHeight: 48,
       borderRadius: 54,
       backgroundColor: 'rgba(255, 255, 255, 0.65)'
+  },
+  phoneNumberInput: {
+    marginTop: -5,
+    width: 190,
+    height: 48
+  },
+  countryCode: {
+      fontSize: 12,
+      marginTop: 12,
+      marginLeft: 10
   }
 });
