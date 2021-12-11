@@ -66,6 +66,8 @@ function BottomTabNavigator() {
       initialRouteName="TabOne"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarIndicatorStyle: style.indicator,
+        tabBarIndicatorContainerStyle: style.indicatorContainer
       }}
       tabBarPosition='bottom'
       >
@@ -110,5 +112,16 @@ function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  return <FontAwesome size={20} style={{ marginBottom: -3 }} {...props} />;
 }
+
+const style = StyleSheet.create({
+  indicator: {
+    maxWidth: 40,
+  },
+  indicatorContainer: {
+    position: 'absolute',
+    left: 75
+  }
+
+})
