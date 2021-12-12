@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, Image } from 'react-native'
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -7,15 +7,16 @@ export const Card = (props: any) =>
             <Text style={styles.typeText}>Pozycze</Text>
             <FontAwesome name="user" style={styles.userIcon}/>
             <Text style={styles.username}>sąsiadka Zofia</Text>
-            <View style={styles.avatar}/>
+            <Image source={require('../assets/images/avatar1.png')} style={styles.avatar}/>
             <Text style={styles.postText}>Hej, Chętnie pożyczę na weekend parownicę do ubrań w zamian za szarlotkę.</Text>
-            <View style={styles.postPhoto}/>
+            <Image source={require('../assets/images/hero2.png')} style={styles.postPhoto}/>
         </View>
 
 const styles = StyleSheet.create({
     card: {
+        marginTop: 20,
         width: 314,
-        height: 314,
+        height: 306,
         backgroundColor: 'white',
         borderRadius: 29,
         borderColor: '#F49819',
@@ -55,9 +56,9 @@ const styles = StyleSheet.create({
     },
     postPhoto: {
         backgroundColor: 'blue',
-        top: 61,
+        top: 20,
         width: 314,
-        height: 140,
+        height: 171,
         borderTopLeftRadius: 22,
         borderTopRightRadius: 22,
         borderBottomRightRadius: 29,
