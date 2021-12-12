@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     postText: {
         fontSize: 14,
         maxWidth: 280,
-        marginTop: 50,
+        marginTop: 70,
         marginLeft: 17,
         color: 'black'
     },
