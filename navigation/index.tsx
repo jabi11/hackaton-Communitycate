@@ -8,7 +8,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { NavigationContainer, DefaultTheme, DarkTheme, TabNavigationState } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable, StyleSheet } from 'react-native';
+import { ColorSchemeName, Pressable, SafeAreaView, StyleSheet } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -73,9 +73,11 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="TabOne"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: 'black',
         tabBarIndicatorStyle: style.indicator,
-        tabBarIndicatorContainerStyle: style.indicatorContainer
+        tabBarIndicatorContainerStyle: style.indicatorContainer,
+        tabBarShowLabel: false,
+        tabBarStyle: style.tabBar
       }}
       tabBarPosition='bottom'
       >
@@ -84,7 +86,7 @@ function BottomTabNavigator() {
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -106,7 +108,7 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />
+          tabBarIcon: ({ color }) => <TabBarIcon name="wrench" color={color} />
         }}
       />
       <BottomTab.Screen
@@ -114,7 +116,7 @@ function BottomTabNavigator() {
         component={TabThreeScreen}
         options={{
           title: 'Tab Three',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />
+          tabBarIcon: ({ color }) => <TabBarIcon name="calendar" color={color} />
         }}
       />
       <BottomTab.Screen
@@ -122,7 +124,7 @@ function BottomTabNavigator() {
         component={TabFourScreen}
         options={{
           title: 'Tab Four',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />
+          tabBarIcon: ({ color }) => <TabBarIcon name="refresh" color={color} />
         }}
       />
       <BottomTab.Screen
@@ -130,7 +132,7 @@ function BottomTabNavigator() {
         component={TabFiveScreen}
         options={{
           title: 'Tab Five',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />
         }}
       />
     </BottomTab.Navigator>
@@ -150,10 +152,13 @@ function TabBarIcon(props: {
 const style = StyleSheet.create({
   indicator: {
     maxWidth: 40,
+    backgroundColor: 'black'
   },
   indicatorContainer: {
-    position: 'absolute',
-    left: 75
+    marginLeft: 15,
+  },
+  tabBar: {
+    marginBottom: 15
   }
 
 })
