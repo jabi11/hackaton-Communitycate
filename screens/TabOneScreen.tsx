@@ -24,7 +24,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <Card text1='Pozycze' username='Sasiadka Zofia' hero={hero1} avatar={avatar1} 
         post={'Hej, Chętnie pożyczę na weekend parownicę do ubrań w zamian za szarlotkę.'}
         />
-        <Card text1='Potrzebuje' username='sąsiad Krzysztof' hero={hero2} avatar={avatar2} 
+        <Card text1='Potrzebuje' username='sąsiad Krzysztof' avatar={avatar2} 
         post={'Dzien dobry, obecnie znajduję się na kwarantannie  od  10.12 do 17.12 i potrzebuję pomocy w wyprowadzaniu psa. '}
         />
       </ScrollView>
@@ -71,5 +71,5 @@ const styles = StyleSheet.create({
     top: 8,
     left: 10,
     color: '#7A7878'
-  }
+  },
 });
