@@ -2,8 +2,6 @@ import { FontAwesome } from '@expo/vector-icons';
 import * as React from 'react';
 import { StyleSheet, Image, ScrollView } from 'react-native';
 import { Card } from '../components/Card';
-
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
@@ -21,10 +19,9 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <FontAwesome style={styles.searchIcon} size={24} name='search'/>
       </View>
       <ScrollView>
-        <Card text1='Pozycze' username='Sasiadka Zofia' hero={hero1} avatar={avatar1} 
-        post={'Hej, Chętnie pożyczę na weekend parownicę do ubrań w zamian za szarlotkę.'}
-        />
-        <Card text1='Potrzebuje' username='sąsiad Krzysztof' avatar={avatar2} 
+        <Card username='Sasiadka Zofia' hero={hero1} avatar={avatar1}
+        post={'Hej, Chętnie pożyczę na weekend parownicę do ubrań w zamian za szarlotkę.'} text1={'Pozycze'}        />
+        <Card text1='Potrzebuje' username='sąsiad Krzysztof' hero={hero2} avatar={avatar2} 
         post={'Dzien dobry, obecnie znajduję się na kwarantannie  od  10.12 do 17.12 i potrzebuję pomocy w wyprowadzaniu psa. '}
         />
       </ScrollView>

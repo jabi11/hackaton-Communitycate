@@ -6,18 +6,18 @@ export interface CardProps {
     text1: string,
     username: string,
     avatar: ImageSourcePropType,
-    hero?: ImageSourcePropType,
+    hero: ImageSourcePropType,
     post: string
 }
 
 export const Card = (props: CardProps) => 
-        <View style={[styles.card, props.hero ? styles.normalHeight : styles.smallHeight]}>
+        <View style={styles.card}>
             <Text style={styles.typeText}>{props.text1}</Text>
             <FontAwesome name="user" style={styles.userIcon}/>
             <Text style={styles.username}>{props.username}</Text>
             <Image source={props.avatar} style={styles.avatar}/>
             <Text style={styles.postText}>{props.post}</Text>
-            {props.hero && <Image source={props.hero} style={styles.postPhoto}/>}
+            <Image source={props.hero} style={styles.postPhoto}/>
         </View>
 
 const styles = StyleSheet.create({
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 29,
         borderColor: '#F49819',
-        borderWidth: 1
+        borderWidth: 1,
+        height: 306,
     },
     typeText: {
         color: '#F49819',
@@ -69,14 +70,6 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 22,
         borderBottomRightRadius: 29,
         borderBottomLeftRadius: 29
-    },
-    smallHeight:{
-        height: 217,
-        maxHeight: 217,
-    },
-    normalHeight: {
-        height: 306,
-        maxHeight: 306,
     }
 
 
