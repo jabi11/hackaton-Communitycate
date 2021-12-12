@@ -9,8 +9,16 @@ import { Header } from 'react-native/Libraries/NewAppScreen';
 export default function DetailScreen({ navigation }: RootStackScreenProps<'Detail'>) {
   return (
     <View style={styles.container}>
-        <Button title='back' onPress={() => navigation.replace('Root')}></Button>
-        <Button title='Contact' onPress={() => navigation.replace('Contact')}></Button>
+        <TouchableOpacity onPress={() => navigation.replace('Root')}>
+            <View style={styles.backButton}>
+                <Text>Back</Text>
+            </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.replace('Contact')}>
+            <View style={styles.backButton}>
+                <Text>Contact</Text>
+            </View>
+        </TouchableOpacity>
         <Text>DETAIL</Text>
     </View>
   );
@@ -22,4 +30,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  backButton: {
+    borderRadius: 16,
+    backgroundColor: '#F49819',
+    borderWidth: 1,
+    borderColor: '#F49819',
+    width: 90,
+    height:32,
+    justifyContent: 'center',
+    alignItems: 'center'
+}
 });
