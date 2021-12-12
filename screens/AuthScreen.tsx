@@ -13,16 +13,16 @@ export default function PhoneNumberScreen({ navigation }: RootStackScreenProps<'
                 <Text>Enter your verification code</Text>
                 <View style={styles.codeContainer}>
                     <View style={styles.codeCell}>
-                        <Text style={styles.codeCellText}>1</Text>
+                        <Text style={styles.codeCellText}>2</Text>
                     </View>
                     <View style={styles.codeCell}>
                         <Text style={styles.codeCellText}>1</Text>
                     </View>
                     <View style={styles.codeCell}>
-                        <Text style={styles.codeCellText}>1</Text>
+                        <Text style={styles.codeCellText}>3</Text>
                     </View>
                     <View style={styles.codeCell}>
-                        <Text style={styles.codeCellText}>1</Text>
+                        <Text style={styles.codeCellText}>7</Text>
                     </View>
                     <View style={styles.codeCell}>
                         <Text style={styles.codeCellText}>1</Text>

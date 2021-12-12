@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     postPhoto: {
-        backgroundColor: 'blue',
+        backgroundColor: 'white',
         top: 20,
         width: 314,
         height: 171,
