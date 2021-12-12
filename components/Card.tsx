@@ -1,15 +1,23 @@
-import { View, StyleSheet, Text, Image } from 'react-native'
+import { View, StyleSheet, Text, Image, ImageSourcePropType } from 'react-native'
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 
-export const Card = (props: any) => 
+export interface CardProps {
+    text1: string,
+    username: string,
+    avatar: ImageSourcePropType,
+    hero: ImageSourcePropType,
+    post: string
+}
+
+export const Card = (props: CardProps) => 
         <View style={styles.card}>
-            <Text style={styles.typeText}>Pozycze</Text>
+            <Text style={styles.typeText}>{props.text1}</Text>
             <FontAwesome name="user" style={styles.userIcon}/>
-            <Text style={styles.username}>sąsiadka Zofia</Text>
-            <Image source={require('../assets/images/avatar1.png')} style={styles.avatar}/>
-            <Text style={styles.postText}>Hej, Chętnie pożyczę na weekend parownicę do ubrań w zamian za szarlotkę.</Text>
-            <Image source={require('../assets/images/hero2.png')} style={styles.postPhoto}/>
+            <Text style={styles.username}>{props.username}</Text>
+            <Image source={props.avatar} style={styles.avatar}/>
+            <Text style={styles.postText}>{props.post}</Text>
+            <Image source={props.hero} style={styles.postPhoto}/>
         </View>
 
 const styles = StyleSheet.create({

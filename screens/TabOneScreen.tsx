@@ -1,11 +1,16 @@
 import { FontAwesome } from '@expo/vector-icons';
 import * as React from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, ScrollView } from 'react-native';
 import { Card } from '../components/Card';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
+
+const avatar1 = require('../assets/images/avatar1.png');
+const hero1 = require('../assets/images/hero2.png');
+const hero2 = require('../assets/images/hero_dog.png');
+const avatar2 = require('../assets/images/avatar7.png');
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
@@ -15,9 +20,14 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         <Text style={styles.searchText}>wyszukaj</Text>
         <FontAwesome style={styles.searchIcon} size={24} name='search'/>
       </View>
-      <Card>
-        
-      </Card>
+      <ScrollView>
+        <Card text1='Pozycze' username='Sasiadka Zofia' hero={hero1} avatar={avatar1} 
+        post={'Hej, Chętnie pożyczę na weekend parownicę do ubrań w zamian za szarlotkę.'}
+        />
+        <Card text1='Potrzebuje' username='sąsiad Krzysztof' hero={hero2} avatar={avatar2} 
+        post={'Dzien dobry, obecnie znajduję się na kwarantannie  od  10.12 do 17.12 i potrzebuję pomocy w wyprowadzaniu psa. '}
+        />
+      </ScrollView>
     </View>
   );
 }
