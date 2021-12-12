@@ -13,6 +13,8 @@ import { ColorSchemeName, Pressable, SafeAreaView, StyleSheet } from 'react-nati
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import AuthScreen from '../screens/AuthScreen';
+import ContactScreen from '../screens/ContactScreen';
+import DetailScreen from '../screens/DetailScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import PhoneNumberScreen from '../screens/PhoneNumberScreen';
@@ -49,6 +51,8 @@ function RootNavigator() {
       <Stack.Screen name="Auth" component={AuthScreen} />
       <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
+      <Stack.Screen name="Detail" component={DetailScreen}/>
+      <Stack.Screen name="Contact" component={ContactScreen}/>
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>

@@ -45,7 +45,9 @@ const linking: LinkingOptions<RootStackParamList> = {
       Modal: 'modal',
       NotFound: '*',
       PhoneNumber: 'PhoneNumber',
-      Auth: 'Auth'
+      Auth: 'Auth',
+      Detail: 'Detail',
+      Contact: 'Contact'
     },
   },
 };
