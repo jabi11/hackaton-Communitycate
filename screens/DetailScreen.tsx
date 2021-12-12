@@ -29,6 +29,17 @@ export default function DetailScreen({ navigation }: RootStackScreenProps<'Detai
       </View>
       <Button title='back' onPress={() => navigation.replace('Root')}></Button>
       <Button title='Contact' onPress={() => navigation.replace('Contact')}></Button>
+        <TouchableOpacity onPress={() => navigation.replace('Root')}>
+            <View style={styles.backButton}>
+                <Text>Back</Text>
+            </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.replace('Contact')}>
+            <View style={styles.backButton}>
+                <Text>Contact</Text>
+            </View>
+        </TouchableOpacity>
+        <Text>DETAIL</Text>
     </View>
   );
 }
@@ -96,4 +107,14 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontSize: 24
   }
+  backButton: {
+    borderRadius: 16,
+    backgroundColor: '#F49819',
+    borderWidth: 1,
+    borderColor: '#F49819',
+    width: 90,
+    height:32,
+    justifyContent: 'center',
+    alignItems: 'center'
+}
 });
