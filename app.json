@@ -29,6 +29,8 @@
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
-    }
+    },
+    "description": "Web & mobile hackaton PJATK 2022",
+    "githubUrl": "https://github.com/jabi11/hackaton-Communitycate"
   }
 }
